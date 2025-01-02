@@ -4,13 +4,12 @@ import Image from "next/image";
 import { CryptoStreamrFactoryAddress } from "@/constants";
 import { CryptoStreamrFactoryAbi } from "@/abi/CryptoStreamrFactory";
 import { config } from "@/wagmi";
-import Bio from "./bio";
 import { CryptoStreamrAbi } from "@/abi/CryptoStreamr";
 
 export default async function Page({
   params,
 }: {
-  params: { username: string };
+  params: Promise<{ username: string }>;
 }) {
   const { username } = await params;
 
