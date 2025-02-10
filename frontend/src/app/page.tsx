@@ -20,7 +20,7 @@ export default function Page() {
             control of your content monetization.
           </p>
           <div className="flex gap-4 justify-center">
-            <Link href="http://localhost:3000/dashboard">
+            <Link href="https://cryptostreamr.xyz/dashboard">
               <Button className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20 text-lg px-8 py-6">
                 Launch App
               </Button>
@@ -102,7 +102,7 @@ export default function Page() {
             Join the future of content monetization. Start accepting crypto tips
             and engaging with your audience in real-time.
           </p>
-          <Link href="http://localhost:3000/dashboard">
+          <Link href="https://cryptostreamr.xyz/dashboard">
             <Button className="bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20 text-lg px-8 py-6">
               Launch App
             </Button>
