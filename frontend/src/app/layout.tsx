@@ -12,6 +12,8 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "CryptoStreamr",
+  description:
+    "Empower your live streams with real-time crypto tipping & Web3 monetization",
 };
 
 export default async function RootLayout(props: { children: ReactNode }) {

@@ -25,7 +25,7 @@ createAppKit({
     socials: false,
   },
   themeVariables: {
-    "--w3m-accent": "#293241",
+    "--w3m-accent": "#2563eb",
   },
 });
 
