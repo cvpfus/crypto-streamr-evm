@@ -1,10 +1,10 @@
 import { cookieStorage, createStorage, type Config, webSocket } from "wagmi";
 import { WagmiAdapter } from "@reown/appkit-adapter-wagmi";
-import { bscTestnet } from "wagmi/chains";
+import { mantaSepoliaTestnet } from "wagmi/chains";
 
 export const projectId = "91b69d7bece4701b9c9798b72e546b0a";
 
-export const networks = [bscTestnet];
+export const networks = [mantaSepoliaTestnet];
 
 export const metadata = {
   name: "CryptoStreamr",
@@ -21,7 +21,7 @@ export const wagmiAdapter = new WagmiAdapter({
   projectId,
   networks,
   transports: {
-    [bscTestnet.id]: webSocket("wss://bsc-testnet-rpc.publicnode.com"),
+    [mantaSepoliaTestnet.id]: webSocket("wss://pacific-rpc.sepolia-testnet.manta.network/ws"),
   },
 });
 

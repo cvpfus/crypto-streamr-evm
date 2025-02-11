@@ -5,7 +5,7 @@ export const formSchema = z
   name: z.string(),
   amount: z.coerce
     .number()
-    .min(0.001, { message: "Amount must be at least 0.001" }),
+    .min(0.0001, { message: "Amount must be at least 0.0001" }),
   message: z
     .string()
     .min(1, { message: "Message must be at least 1 character" })

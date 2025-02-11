@@ -37,7 +37,7 @@ export default function TipForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
       name: "",
-      amount: 0.001,
+      amount: 0.0001,
       message: "",
       anonymous: false,
     },

@@ -1,374 +1,395 @@
 export const CryptoStreamrAbi = [
   {
-    inputs: [],
-    stateMutability: "nonpayable",
-    type: "constructor",
-  },
-  {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "owner",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "_factoryOwner",
+        "type": "address"
+      }
     ],
-    name: "OwnableInvalidOwner",
-    type: "error",
+    "stateMutability": "nonpayable",
+    "type": "constructor"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "account",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
+      }
     ],
-    name: "OwnableUnauthorizedAccount",
-    type: "error",
+    "name": "OwnableInvalidOwner",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "previousOwner",
-        type: "address",
-      },
-      {
-        indexed: true,
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "account",
+        "type": "address"
+      }
     ],
-    name: "OwnershipTransferred",
-    type: "event",
+    "name": "OwnableUnauthorizedAccount",
+    "type": "error"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "senderAddress",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "previousOwner",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "string",
-        name: "senderName",
-        type: "string",
-      },
-      {
-        indexed: false,
-        internalType: "string",
-        name: "message",
-        type: "string",
-      },
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
-      },
-      {
-        indexed: false,
-        internalType: "uint256",
-        name: "timestamp",
-        type: "uint256",
-      },
+        "indexed": true,
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
     ],
-    name: "TipReceived",
-    type: "event",
+    "name": "OwnershipTransferred",
+    "type": "event"
   },
   {
-    anonymous: false,
-    inputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        indexed: true,
-        internalType: "address",
-        name: "owner",
-        type: "address",
+        "indexed": true,
+        "internalType": "address",
+        "name": "senderAddress",
+        "type": "address"
       },
       {
-        indexed: false,
-        internalType: "uint256",
-        name: "amount",
-        type: "uint256",
+        "indexed": false,
+        "internalType": "string",
+        "name": "senderName",
+        "type": "string"
       },
+      {
+        "indexed": false,
+        "internalType": "string",
+        "name": "message",
+        "type": "string"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "timestamp",
+        "type": "uint256"
+      }
     ],
-    name: "Withdraw",
-    type: "event",
+    "name": "TipReceived",
+    "type": "event"
   },
   {
-    inputs: [],
-    name: "bio",
-    outputs: [
+    "anonymous": false,
+    "inputs": [
       {
-        internalType: "string",
-        name: "",
-        type: "string",
+        "indexed": true,
+        "internalType": "address",
+        "name": "owner",
+        "type": "address"
       },
+      {
+        "indexed": false,
+        "internalType": "uint256",
+        "name": "amount",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "name": "Withdraw",
+    "type": "event"
   },
   {
-    inputs: [
+    "inputs": [],
+    "name": "bio",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "tipIndex",
-        type: "uint256",
-      },
+        "internalType": "string",
+        "name": "",
+        "type": "string"
+      }
     ],
-    name: "emitTipEvent",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "getAllTips",
-    outputs: [
+    "inputs": [],
+    "name": "factoryOwner",
+    "outputs": [
       {
-        components: [
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
+    ],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "getAllTips",
+    "outputs": [
+      {
+        "components": [
           {
-            internalType: "address",
-            name: "senderAddress",
-            type: "address",
+            "internalType": "address",
+            "name": "senderAddress",
+            "type": "address"
           },
           {
-            internalType: "string",
-            name: "senderName",
-            type: "string",
+            "internalType": "string",
+            "name": "senderName",
+            "type": "string"
           },
           {
-            internalType: "string",
-            name: "message",
-            type: "string",
+            "internalType": "string",
+            "name": "message",
+            "type": "string"
           },
           {
-            internalType: "uint256",
-            name: "amount",
-            type: "uint256",
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
           },
           {
-            internalType: "uint256",
-            name: "timestamp",
-            type: "uint256",
+            "internalType": "uint256",
+            "name": "amountMinusFee",
+            "type": "uint256"
           },
+          {
+            "internalType": "uint256",
+            "name": "timestamp",
+            "type": "uint256"
+          }
         ],
-        internalType: "struct CryptoStreamr.Tip[]",
-        name: "",
-        type: "tuple[]",
-      },
+        "internalType": "struct CryptoStreamr.Tip[]",
+        "name": "",
+        "type": "tuple[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "page",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "page",
+        "type": "uint256"
       },
       {
-        internalType: "uint256",
-        name: "pageSize",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "pageSize",
+        "type": "uint256"
+      }
     ],
-    name: "getTipHistory",
-    outputs: [
+    "name": "getTipHistory",
+    "outputs": [
       {
-        components: [
+        "components": [
           {
-            internalType: "address",
-            name: "senderAddress",
-            type: "address",
+            "internalType": "address",
+            "name": "senderAddress",
+            "type": "address"
           },
           {
-            internalType: "string",
-            name: "senderName",
-            type: "string",
+            "internalType": "string",
+            "name": "senderName",
+            "type": "string"
           },
           {
-            internalType: "string",
-            name: "message",
-            type: "string",
+            "internalType": "string",
+            "name": "message",
+            "type": "string"
           },
           {
-            internalType: "uint256",
-            name: "amount",
-            type: "uint256",
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
           },
           {
-            internalType: "uint256",
-            name: "timestamp",
-            type: "uint256",
+            "internalType": "uint256",
+            "name": "amountMinusFee",
+            "type": "uint256"
           },
+          {
+            "internalType": "uint256",
+            "name": "timestamp",
+            "type": "uint256"
+          }
         ],
-        internalType: "struct CryptoStreamr.Tip[]",
-        name: "paginatedTips",
-        type: "tuple[]",
-      },
+        "internalType": "struct CryptoStreamr.Tip[]",
+        "name": "paginatedTips",
+        "type": "tuple[]"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "uint256",
-        name: "startRow",
-        type: "uint256",
+        "internalType": "uint256",
+        "name": "startRow",
+        "type": "uint256"
       },
       {
-        internalType: "uint256",
-        name: "endRow",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "endRow",
+        "type": "uint256"
+      }
     ],
-    name: "getTipHistory2",
-    outputs: [
+    "name": "getTipHistory2",
+    "outputs": [
       {
-        components: [
+        "components": [
           {
-            internalType: "address",
-            name: "senderAddress",
-            type: "address",
+            "internalType": "address",
+            "name": "senderAddress",
+            "type": "address"
           },
           {
-            internalType: "string",
-            name: "senderName",
-            type: "string",
+            "internalType": "string",
+            "name": "senderName",
+            "type": "string"
           },
           {
-            internalType: "string",
-            name: "message",
-            type: "string",
+            "internalType": "string",
+            "name": "message",
+            "type": "string"
           },
           {
-            internalType: "uint256",
-            name: "amount",
-            type: "uint256",
+            "internalType": "uint256",
+            "name": "amount",
+            "type": "uint256"
           },
           {
-            internalType: "uint256",
-            name: "timestamp",
-            type: "uint256",
+            "internalType": "uint256",
+            "name": "amountMinusFee",
+            "type": "uint256"
           },
+          {
+            "internalType": "uint256",
+            "name": "timestamp",
+            "type": "uint256"
+          }
         ],
-        internalType: "struct CryptoStreamr.Tip[]",
-        name: "paginatedTips",
-        type: "tuple[]",
+        "internalType": "struct CryptoStreamr.Tip[]",
+        "name": "paginatedTips",
+        "type": "tuple[]"
       },
       {
-        internalType: "uint256",
-        name: "totalTips",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "totalTips",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "getTotalTips",
-    outputs: [
+    "inputs": [],
+    "name": "getTotalTips",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "owner",
-    outputs: [
+    "inputs": [],
+    "name": "owner",
+    "outputs": [
       {
-        internalType: "address",
-        name: "",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "",
+        "type": "address"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "renounceOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "string",
-        name: "senderName",
-        type: "string",
+        "internalType": "string",
+        "name": "senderName",
+        "type": "string"
       },
       {
-        internalType: "string",
-        name: "message",
-        type: "string",
-      },
+        "internalType": "string",
+        "name": "message",
+        "type": "string"
+      }
     ],
-    name: "sendTip",
-    outputs: [],
-    stateMutability: "payable",
-    type: "function",
+    "name": "sendTip",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "string",
-        name: "newBio",
-        type: "string",
-      },
+        "internalType": "string",
+        "name": "newBio",
+        "type": "string"
+      }
     ],
-    name: "setBio",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "setBio",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "totalTipsReceived",
-    outputs: [
+    "inputs": [],
+    "name": "totalTipsReceived",
+    "outputs": [
       {
-        internalType: "uint256",
-        name: "",
-        type: "uint256",
-      },
+        "internalType": "uint256",
+        "name": "",
+        "type": "uint256"
+      }
     ],
-    stateMutability: "view",
-    type: "function",
+    "stateMutability": "view",
+    "type": "function"
   },
   {
-    inputs: [
+    "inputs": [
       {
-        internalType: "address",
-        name: "newOwner",
-        type: "address",
-      },
+        "internalType": "address",
+        "name": "newOwner",
+        "type": "address"
+      }
     ],
-    name: "transferOwnership",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
-    inputs: [],
-    name: "withdraw",
-    outputs: [],
-    stateMutability: "nonpayable",
-    type: "function",
-  },
+    "inputs": [],
+    "name": "withdraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  }
 ] as const;

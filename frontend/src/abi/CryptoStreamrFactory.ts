@@ -65,6 +65,25 @@ export const CryptoStreamrFactoryAbi = [
     type: "event",
   },
   {
+    anonymous: false,
+    inputs: [
+      {
+        indexed: true,
+        internalType: "address",
+        name: "owner",
+        type: "address",
+      },
+      {
+        indexed: false,
+        internalType: "uint256",
+        name: "amount",
+        type: "uint256",
+      },
+    ],
+    name: "Withdraw",
+    type: "event",
+  },
+  {
     inputs: [
       {
         internalType: "address",
@@ -143,6 +162,19 @@ export const CryptoStreamrFactoryAbi = [
   },
   {
     inputs: [],
+    name: "feePercentage",
+    outputs: [
+      {
+        internalType: "uint8",
+        name: "",
+        type: "uint8",
+      },
+    ],
+    stateMutability: "view",
+    type: "function",
+  },
+  {
+    inputs: [],
     name: "owner",
     outputs: [
       {
@@ -157,6 +189,19 @@ export const CryptoStreamrFactoryAbi = [
   {
     inputs: [],
     name: "renounceOwnership",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    inputs: [
+      {
+        internalType: "uint8",
+        name: "_feePercentage",
+        type: "uint8",
+      },
+    ],
+    name: "setFeePercentage",
     outputs: [],
     stateMutability: "nonpayable",
     type: "function",
@@ -192,5 +237,16 @@ export const CryptoStreamrFactoryAbi = [
     ],
     stateMutability: "view",
     type: "function",
+  },
+  {
+    inputs: [],
+    name: "withdraw",
+    outputs: [],
+    stateMutability: "nonpayable",
+    type: "function",
+  },
+  {
+    stateMutability: "payable",
+    type: "receive",
   },
 ] as const;
