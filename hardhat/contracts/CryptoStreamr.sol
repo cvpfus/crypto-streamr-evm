@@ -2,6 +2,7 @@
 pragma solidity ^0.8.20;
 
 import {Ownable} from "@openzeppelin/contracts/access/Ownable.sol";
+import "./CryptoStreamrFactory.sol";
 
 contract CryptoStreamr is Ownable {
     struct Tip {
@@ -9,6 +10,7 @@ contract CryptoStreamr is Ownable {
         string senderName;
         string message;
         uint256 amount;
+        uint256 amountMinusFee;
         uint256 timestamp;
     }
 
@@ -17,6 +19,8 @@ contract CryptoStreamr is Ownable {
     uint256 public totalTipsReceived;
 
     string public bio;
+
+    address payable public factoryAddress;
 
     event TipReceived(
         address indexed senderAddress,
@@ -27,12 +31,22 @@ contract CryptoStreamr is Ownable {
     );
     event Withdraw(address indexed owner, uint256 amount);
 
-    constructor() Ownable(msg.sender) {}
+    constructor(address _factoryAddress) Ownable(msg.sender) {
+        factoryAddress = payable(_factoryAddress);
+    }
 
     /// @dev Function to store a new tip
     /// @param message - The message sent with the tip
-    function sendTip(string calldata senderName, string calldata message) external payable {
+    function sendTip(
+        string calldata senderName,
+        string calldata message
+    ) external payable {
         require(msg.value > 0, "Tip amount must be greater than zero");
+
+        uint8 feePercentage = CryptoStreamrFactory(factoryAddress)
+            .feePercentage();
+        uint256 fee = (msg.value * feePercentage) / 100;
+        uint256 amountMinusFee = msg.value - fee;
 
         tips.push(
             Tip({
@@ -40,28 +54,23 @@ contract CryptoStreamr is Ownable {
                 senderName: senderName,
                 message: message,
                 amount: msg.value,
+                amountMinusFee: amountMinusFee,
                 timestamp: block.timestamp
             })
         );
 
         totalTipsReceived += msg.value;
 
-        emit TipReceived(msg.sender, senderName, message, msg.value, block.timestamp);
-    }
-
-    /// @dev Function to emit the TipReceived event for a selected tip by index
-    /// @param tipIndex - The index of the tip in the array
-    function emitTipEvent(uint256 tipIndex) external onlyOwner {
-        require(tipIndex < tips.length, "Invalid tip index");
-
-        Tip memory selectedTip = tips[tipIndex];
         emit TipReceived(
-            selectedTip.senderAddress,
-            selectedTip.senderName,
-            selectedTip.message,
-            selectedTip.amount,
-            selectedTip.timestamp
+            msg.sender,
+            senderName,
+            message,
+            msg.value,
+            block.timestamp
         );
+
+        (bool success, ) = factoryAddress.call{value: fee}("");
+        require(success, "Fee transfer failed");
     }
 
     /// @dev Function to get tip history with pagination
@@ -140,7 +149,10 @@ contract CryptoStreamr is Ownable {
     /// @dev Function to set the bio of the creator
     /// @param newBio - The bio
     function setBio(string calldata newBio) external onlyOwner {
-        require(bytes(newBio).length <= 130, "Bio must be less than 130 characters");
+        require(
+            bytes(newBio).length <= 130,
+            "Bio must be less than 130 characters"
+        );
         bio = newBio;
     }
 }

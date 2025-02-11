@@ -19,7 +19,7 @@ describe("CryptoStreamrFactory contract", function () {
   it("Deployment should assign the username to the owner", async function () {
     await cryptoStreamrFactory.deployContract(username);
 
-    const creator = await cryptoStreamrFactory.creators(signer1);
+    const creator = await cryptoStreamrFactory.creatorInfoByAddress(signer1);
     expect(creator.username).to.equal(username);
   });
 
@@ -49,7 +49,7 @@ describe("CryptoStreamrFactory contract", function () {
       })
       .find((e) => e && e.name === "ContractDeployed");
 
-    const creatorInfo = await cryptoStreamrFactory.creators(signer1);
+    const creatorInfo = await cryptoStreamrFactory.creatorInfoByAddress(signer1);
 
     expect(creatorInfo.username).to.equal(username);
     expect(creatorInfo.contractAddress).to.equal(event?.args[1]);
